@@ -7,7 +7,6 @@ void main() {
   runApp(MyApp());
 }
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -24,6 +23,7 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
   final String title;
+  String a="S";
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -32,6 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
   var _Provider = ApiProvider();
   Future<List<BreweryModel>> list;
   bool flag=false;
+  String s="ss";
   @override
   void initState() {
     callApis();
@@ -68,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             builder: (context) => BreweryDetailScreen(Brewerymodel:snapshot.data[index]),
                         ));
                       },
-                      title: Text("${snapshot.data[index].name}"),
+                      title: Text(s),
                   ));
             },
             itemCount: snapshot.data == null ? 0 : snapshot.data.length,
@@ -76,3 +77,4 @@ class _MyHomePageState extends State<MyHomePage> {
         });
   }
 }
+// ${snapshot.data[index].name}
